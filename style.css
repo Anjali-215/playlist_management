@@ -1,5 +1,6 @@
 body{
     overflow-x: hidden;
+
 }
 .bg-custom{
     position: relative;
@@ -63,7 +64,7 @@ body{
     background-size:cover;
     background-position: center;
     width: auto;
-    height: auto;
+    height: 100%;
 
 }
 .wrapper{
@@ -90,7 +91,7 @@ body{
 }
 .input-box input{
     height: 100%;
-    width: 95%;
+    width: 100%;
     background: transparent;
     border:none;
     outline: none;
@@ -107,6 +108,24 @@ body{
 .input-box i{
     position: absolute;
     transform:translateY(-40%)
+}
+.box-1{
+    position:relative ;
+}
+.uc-1{
+    position: absolute;
+    top: 1.5rem;
+    left: 18rem;
+    
+}
+.box-2{
+    position:relative ;
+}
+.uc-2{
+    position: absolute;
+    top: 1.5rem;
+    left: 18rem;
+    
 }
 .wrapper .remember-forget{
     display: flex;
@@ -151,24 +170,161 @@ body{
 .register-link p a:hover{
     text-decoration: underline;
 }
+
+
+
 /* login page end */
 
 /* contact us page */
 .button1{
-    align-content: center;
+    align-content: center !important;
     text-align: center !important;
     width: 100% !important;
+    text-shadow: #333;
+    background-color: #fff !important;
+    color: black !important;
+    border-radius: 5px;
+    font-weight: 500;
+    align-items: center !important;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+.grid-container{
+    display: grid;
+    place-items: center;
 }
 .head1{
     text-align: center;
 }
-
+.contactsection .head1{
+    text-decoration:wavy;
+    text-decoration-thickness:inherit
+}
 
 
 /* footer */
 .f1{
     background-color: black;
-    width: 100%;
+    width: auto;
     height: 15rem;
+    font-style:normal;
+    color: #fff ;
+    text-align: center;
+    padding: 50px;
+    overflow-x: hidden;
+    overflow-y: hidden;
 
+
+}
+.list-unstyled{
+    display: flex;
+    justify-content:center;
+    list-style: none;
+    font-size:15px;
+
+}
+.list-spacing{
+    justify-content: space-between;
+}
+.copyright1{
+    font-size: 10px;
+}
+
+
+
+
+/* subscription page */
+
+.hero{
+    background-image: url('./video\ and\ image/subscription.png');
+    background-size: cover;
+    background-position: center;
+     /* Adjust as needed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2; /* Ensure content is above the overlay */
+}
+
+main {
+    padding: 20px;
+}
+
+.subscription-form .container {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.subscription-form h2 {
+    margin-bottom: 20px;
+}
+
+form {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.checkbox-group {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+button.btn {
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    align-self: flex-start;
+}
+
+button.btn:hover {
+    background-color: #45a049;
 }
