@@ -1,0 +1,174 @@
+body{
+    overflow-x: hidden;
+}
+.bg-custom{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+.bgvideo{
+    position: absolute;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    top: 50%;
+    left: 50%;
+    object-fit: cover;
+    transform: translate(-50%,-50%);
+    z-index: -1;
+    right: 0;
+    bottom:0;
+    background-size:cover;
+    background-position: center;
+}
+.contents{
+    position: relative
+    z-index 1;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+.cls2 :hover{
+    color: brown !important;
+}
+
+/* @media(min-aspect-ratio:16/9){
+    .bgvideo{
+        width: 100%;
+        height: auto;
+    }
+}
+@media(max-aspect-ratio:16/9){
+    .bgvideo{
+        width: auto;
+        height: 100%;
+    }
+} */
+@media only screen and (max-width: 600px){
+    .bgvideo{
+        width: 100%;
+        height: auto;  
+    }
+}
+/* login page */
+.body-login{  
+    box-sizing: border-box;
+    font-family: "poppins",sans-serif;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    background:url('./video\ and\ images/bgimage.png') no-repeat;
+    background-size:cover;
+    background-position: center;
+    width: auto;
+    height: auto;
+
+}
+.wrapper{
+    width: 420px;
+    margin-top: 10%;
+    justify-content:center;
+    align-items: center;
+    background:transparent;
+    border: 2px solid rgb(14, 14, 14);
+    border-radius: 10px;
+    padding: 30px 40px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 10px rgba(0,0,0,.2);
+}
+.wrapper h1{
+    font-size: 36px;
+    text-align: center;
+}
+.wrapper .input-box{
+    width: 100%;
+    height: 100%;
+    margin: 30px 0;
+
+}
+.input-box input{
+    height: 100%;
+    width: 95%;
+    background: transparent;
+    border:none;
+    outline: none;
+    border: 2px solid rgba(0, 13, 0, 0.936);
+    border-radius: 40px;
+    font-size: 20px;
+    padding:15px ;
+
+
+}
+.input-box ::placeholder{
+    color: #fff;
+}
+.input-box i{
+    position: absolute;
+    transform:translateY(-40%)
+}
+.wrapper .remember-forget{
+    display: flex;
+    justify-content: space-between;
+    font-size:15px;
+    margin: 15px  15px;
+}
+
+.remember-forget a{
+    color: #fff;
+    margin-right: 3px;
+    text-decoration: none;
+}
+
+.remember-forget a:hover{
+    text-decoration:underline;
+}
+.wrapper .btn{
+    width: 100%;
+    height: 50%;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+    cursor: pointer;
+    color: #333;
+    font-weight: 600;
+}
+
+.wrapper .register-link {
+    font-size: 15px;
+    margin:20px;
+    text-align:center;
+    margin:20px 0 15px
+
+}
+.register-link p a{
+    color:#fff;
+    text-decoration: none;
+    font-weight: 600;
+}
+.register-link p a:hover{
+    text-decoration: underline;
+}
+/* login page end */
+
+/* contact us page */
+.button1{
+    align-content: center;
+    text-align: center !important;
+    width: 100% !important;
+}
+.head1{
+    text-align: center;
+}
+
+
+
+/* footer */
+.f1{
+    background-color: black;
+    width: 100%;
+    height: 15rem;
+
+}
