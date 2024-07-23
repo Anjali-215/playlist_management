@@ -34,6 +34,17 @@ body{
 .cls2 :hover{
     color: brown !important;
 }
+.navbar{
+    background-color:#636366;
+}
+
+.divo1{
+    background-color:#636366;
+}
+
+.divo2{
+    background-color:#636366 !important;
+}
 
 /* @media(min-aspect-ratio:16/9){
     .bgvideo{
@@ -182,7 +193,7 @@ body{
     width: 100% !important;
     text-shadow: #333;
     background-color: #fff !important;
-    color: black !important;
+    color:  #636366 !important;
     border-radius: 5px;
     font-weight: 500;
     align-items: center !important;
@@ -202,32 +213,60 @@ body{
 }
 
 
+
 /* footer */
-.f1{
-    background-color: black;
-    width: auto;
-    height: 15rem;
-    font-style:normal;
-    color: #fff ;
-    text-align: center;
-    padding: 50px;
-    overflow-x: hidden;
-    overflow-y: hidden;
 
+/* Style for the footer container */
+.f1 {
+    background-color: #333;
+    color: #fff;
+    padding: 50px 0; /* Adjust top and bottom padding as needed */
+}
 
+/* Style for the inner content */
+.ff1 {
+    text-align: center; /* Center align content */
 }
-.list-unstyled{
-    display: flex;
-    justify-content:center;
-    list-style: none;
-    font-size:15px;
 
+.ff1 h5 {
+    margin-bottom: 20px; /* Bottom margin for the heading */
+    font-size: 24px; /* Font size for heading */
 }
-.list-spacing{
-    justify-content: space-between;
+
+.ff1 p {
+    font-size: 16px; /* Font size for paragraph */
+    line-height: 1.6; /* Line height for readability */
 }
-.copyright1{
-    font-size: 10px;
+
+/* Style for the Follow Us section */
+.list-spacing {
+    margin-top: 30px; /* Top margin for the Follow Us section */
+}
+
+.list-unstyled {
+    list-style: none; /* Remove default list styles */
+    padding-left: 0; /* Remove left padding */
+}
+
+.list-unstyled li {
+    margin-bottom: 10px; /* Bottom margin for each social media link */
+}
+
+.list-unstyled li a {
+    color: #fff; /* Link color */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s; /* Smooth color transition on hover */
+}
+
+.list-unstyled li a:hover {
+    color: #0b0b0b; /* Hover color */
+}
+
+/* Style for the copyright section */
+.copyright1 {
+    margin-top: 30px; /* Top margin for copyright section */
+    text-align: center; /* Center align text */
+    font-size: 14px; /* Font size for copyright text */
 }
 
 
@@ -235,41 +274,16 @@ body{
 
 /* subscription page */
 
-.hero{
-    background-image: url('./video\ and\ image/subscription.png');
-    background-size: cover;
-    background-position: center;
-     /* Adjust as needed */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
+.hero-content{
+    padding-top: 20px;
     text-align: center;
-    padding: 20px;
-    position: relative;
 }
-
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5); /* Dark overlay */
-    z-index: 1;
+.hero{
+    background-image: url('./video\ and\ images/subscription.png');
+    height:1000px;
+    width: 1000px;
 }
-
-.hero-content {
-    position: relative;
-    z-index: 2; /* Ensure content is above the overlay */
-}
-
-main {
-    padding: 20px;
-}
-
-.subscription-form .container {
+.subscription-contents .container-subscription{
     max-width: 600px;
     margin: 0 auto;
     display: flex;
@@ -277,54 +291,87 @@ main {
     align-items: center;
 }
 
-.subscription-form h2 {
-    margin-bottom: 20px;
-}
-
-form {
+.form-subscription{
     width: 100%;
     display: grid;
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 20px;   
 }
-
-.form-group {
+.form-group-subscription {
     display: flex;
     flex-direction: column;
 }
-
-.checkbox-group {
-    display: flex;
-    flex-direction: column;
-}
-
-label {
-    margin-bottom: 5px;
-}
-
-input[type="text"],
-input[type="email"],
-input[type="password"],
-select {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-input[type="checkbox"] {
-    margin-right: 10px;
-}
-
-button.btn {
+button.subcribe-button {
     padding: 10px 20px;
-    background-color: #4caf50;
+    background-color: #0e0e0e;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    align-self: flex-start;
+    
 }
 
-button.btn:hover {
-    background-color: #45a049;
+
+/* playlist */
+.flexcontainer {
+    background-color: #0e0e0e;
+    display: flex;
+    -webkit-box-flex-direction:coloumn;
+    flex-direction: coloumn;
+    float: left;
+    justify-content: center;
+    justify-content: flex-start;
+    width: fit-content;
+    gap: 10px;
+    padding: 10px;
+}
+.flex-item1{
+    background-color:#fff;
+    border: 1px solid #333;
+    float: left;
+    border-radius: 8px;
+    -webkit-box-flex-direction:row;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 10px;
+    justify-content: space-around;
+    padding: 2px;
+    max-width: 18rem;
+    height: 20rem;
+    box-shadow: 0 4px 8 px rgba(0,0,0,0.1)
+}
+.flexcontainer h1{
+    font-size: medium;
+    font-size: 20em;
+    font-weight: bold;
+    text-shadow: #333;
+}
+
+
+/* trackplay */
+.container-trackplay .hero-trackplay{
+    background-image: url('./video\ and\ images/trackplay-background.png');
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    flex-direction: coloumn;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.hero-trackplay .audio-class{
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 100rem;
+    padding: 10px;
+    
+}
+.container-trackplay h1{
+    position: absolute;
+    top:50px; 
+    transform: translateY(-50%);
+    color: #fff;
 }
