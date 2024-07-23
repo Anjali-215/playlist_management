@@ -1,0 +1,125 @@
+
+/* Reset default margins and padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Global styles */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f8f9fa; /* Light grey background */
+}
+
+.container {
+  max-width: 1200px; /* Limit content width */
+  margin: 0 auto; /* Center align content */
+  padding: 0 20px; /* Add padding to center content */
+}
+
+/* Header styles */
+header {
+  background-color: #343a40; /* Dark background color for header */
+  padding: 20px 0;
+}
+
+.header-logo {
+  width: 100%; /* Make logo responsive */
+  max-width: 200px; /* Limit logo size */
+}
+
+.navbar-nav .nav-link {
+  color: #fff; /* Navbar link text color */
+  font-size: 18px; /* Navbar link font size */
+  margin-right: 20px; /* Spacing between navbar links */
+}
+
+.navbar-nav .nav-link:hover {
+  color: #eedddd !important ;   /* Navbar link text color on hover */
+}
+
+/* Main content styles */
+main {
+  padding: 40px 0; /* Padding around main content */
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Gap between flex items */
+}
+
+.flex-item1 {
+  flex: 1 1 calc(33.33% - 20px); /* Flex item size for desktop (3 columns) */
+  background-color: #fff; /* Card background color */
+  padding: 20px; /* Padding inside each card */
+  border-radius: 8px; /* Rounded corners for cards */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Card shadow */
+}
+
+.flex-item1 img {
+  width: 50%; /* Make images fill the card */
+  border-radius: 8px; /* Rounded corners for images */
+}
+
+.flex-item1 h5 {
+  margin-top: 10px; /* Top margin for card title */
+}
+
+.flex-item1 p {
+  color: #6c757d; /* Text color for card description */
+}
+
+.flex-item1 .btn-primary {
+  background-color: #161b21; /* Primary button background color */
+  border-color: #e5eef7; /* Primary button border color */
+}
+
+/* Footer styles */
+footer {
+  background-color: #343a40; /* Dark background color for footer */
+  color: #fff; /* Footer text color */
+  padding: 20px 0; /* Padding inside footer */
+  text-align: center; /* Center align text */
+}
+
+.footer-links {
+  margin-top: 20px; /* Top margin for footer links */
+}
+
+.footer-links a {
+  color: #fff; /* Footer link text color */
+  margin-right: 10px; /* Spacing between footer links */
+}
+
+.footer-links a:hover {
+  text-decoration: none; /* Remove underline on hover */
+  opacity: 0.8; /* Reduce opacity on hover */
+  color: #fff;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .flex-item1 {
+    flex: 1 1 calc(50% - 20px); /* Flex item size for tablets (2 columns) */
+  }
+}
+
+@media (max-width: 768px) {
+  .flex-item1 {
+    flex: 1 1 100%; /* Flex item size for mobile (1 column) */
+  }
+
+  header {
+    padding: 10px 0; /* Reduce header padding for smaller screens */
+  }
+
+  .navbar-nav .nav-link {
+    font-size: 16px; /* Decrease font size for navbar links on mobile */
+  }
+
+  .header-logo {
+    max-width: 150px; /* Decrease logo size for smaller screens */
+  }
+}
