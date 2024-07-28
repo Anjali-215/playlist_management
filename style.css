@@ -212,7 +212,7 @@ body{
 .f1 {
     background-color: #333;
     color: #fff;
-    padding: 10px 0; /* Adjust top and bottom padding as needed */
+    padding: 5px 0; /* Reduced top and bottom padding */
 }
 
 /* Style for the inner content */
@@ -221,7 +221,7 @@ body{
 }
 
 .ff1 h5 {
-    margin-bottom: 10px; /* Bottom margin for the heading */
+    margin-bottom: 5px; /* Reduced bottom margin for the heading */
     font-size: 24px; /* Font size for heading */
 }
 
@@ -232,7 +232,7 @@ body{
 
 /* Style for the Follow Us section */
 .list-spacing {
-    margin-top: 15px; /* Top margin for the Follow Us section */
+    margin-top: 10px; /* Reduced top margin for the Follow Us section */
 }
 
 .list-unstyled {
@@ -241,7 +241,7 @@ body{
 }
 
 .list-unstyled li {
-    margin-bottom: 10px; /* Bottom margin for each social media link */
+    margin-bottom: 5px; /* Reduced bottom margin for each social media link */
 }
 
 .list-unstyled li a {
@@ -256,10 +256,11 @@ body{
 
 /* Style for the copyright section */
 .copyright1 {
-    margin-top: 30px; /* Top margin for copyright section */
+    margin-top: 20px; /* Reduced top margin for copyright section */
     text-align: center; /* Center align text */
     font-size: 14px; /* Font size for copyright text */
 }
+
 
 
 
