@@ -36,28 +36,19 @@ body{
 }
 .navbar{
     background-color:#636366;
+    
 }
 
 .divo1{
     background-color:#636366;
+    height: 130px;
 }
 
 .divo2{
     background-color:#636366 !important;
 }
 
-/* @media(min-aspect-ratio:16/9){
-    .bgvideo{
-        width: 100%;
-        height: auto;
-    }
-}
-@media(max-aspect-ratio:16/9){
-    .bgvideo{
-        width: auto;
-        height: 100%;
-    }
-} */
+
 @media only screen and (max-width: 600px){
     .bgvideo{
         width: 100%;
