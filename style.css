@@ -70,11 +70,12 @@ body{
     font-family: "poppins",sans-serif;
     display: flex;
     justify-content:center;
+    align-self: center;
     align-items: center;
     background:url('./video\ and\ images/bgimage.png') no-repeat;
     background-size:cover;
     background-position: center;
-    width: auto;
+    width:2000% !important;
     height: 100%;
 
 }
@@ -220,7 +221,7 @@ body{
 .f1 {
     background-color: #333;
     color: #fff;
-    padding: 50px 0; /* Adjust top and bottom padding as needed */
+    padding: 10px 0; /* Adjust top and bottom padding as needed */
 }
 
 /* Style for the inner content */
@@ -229,7 +230,7 @@ body{
 }
 
 .ff1 h5 {
-    margin-bottom: 20px; /* Bottom margin for the heading */
+    margin-bottom: 10px; /* Bottom margin for the heading */
     font-size: 24px; /* Font size for heading */
 }
 
@@ -240,7 +241,7 @@ body{
 
 /* Style for the Follow Us section */
 .list-spacing {
-    margin-top: 30px; /* Top margin for the Follow Us section */
+    margin-top: 15px; /* Top margin for the Follow Us section */
 }
 
 .list-unstyled {
@@ -281,7 +282,8 @@ body{
 .hero{
     background-image: url('./video\ and\ images/subscription.png');
     height:1000px;
-    width: 1000px;
+    width: 100%;
+    margin: 0px;
 }
 .subscription-contents .container-subscription{
     max-width: 600px;
