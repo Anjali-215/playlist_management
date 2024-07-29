@@ -22,11 +22,11 @@
       <div class="col-md-10 mx-auto col-lg-5">
         <form id="signupForm" class="p-4 p-md-5 border rounded-3 bg-light">
             <div class="form-floating mb-3">
-              <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+              <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" required>
               <label for="floatingInput">Email address</label>
             </div>
             <div class="form-floating mb-3">
-              <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+              <input type="password" class="form-control" id="floatingPassword" placeholder="Password" required>
               <label for="floatingPassword">Password</label>
             </div>
             <div class="checkbox mb-3">
@@ -52,8 +52,8 @@
          
     <script>
         document.getElementById('signupForm').addEventListener('submit', function(event) {
-          event.preventDefault(); // Prevent default form submission
-          window.location.href = '../Home/home.html'; // Redirect to the desired page
+          event.preventDefault(); 
+          window.location.href ="./index.html" ; 
         });
       </script>
       

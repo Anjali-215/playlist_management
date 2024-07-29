@@ -1,27 +1,27 @@
 
-/* Reset default margins and padding */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Global styles */
+
 body {
   font-family: 'Arial', sans-serif;
-  background-color: #f8f9fa; /* Light grey background */
+  background-color: #f8f9fa; 
 }
 
 .container {
-  max-width: 1200px; /* Limit content width */
-  margin: 0 auto; /* Center align content */
+  max-width: 1200px; 
+  margin: 0 auto; 
   padding: 0 20px; /* Add padding to center content */
 }
 
 /* Header styles */
 header {
-  background-color: #343a40; /* Dark background color for header */
-  padding: 20px 0;
+  background-color:#636366; /* Dark background color for header */
+  padding: 5px 0;
 }
 
 .header-logo {
@@ -123,3 +123,27 @@ footer {
     max-width: 150px; /* Decrease logo size for smaller screens */
   }
 }
+
+.footer-font{
+  color: #fff !important;
+
+}
+
+.footer-font:hover{
+  color: rgb(89, 82, 82) !important;
+}
+
+
+.flex-item1:hover {
+  flex: 1 1 calc(33.33% - 20px);
+  background-color: #d2d6ec !important;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.select2{
+  width: 90% !important;
+  height: 3rem !important;
+
+}
+

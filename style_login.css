@@ -1,5 +1,5 @@
 .wrapper {
-    background: rgb(7, 7, 7);
-    background: linear-gradient(90deg, rgb(30, 29, 29) 0%, rgb(231, 225, 227) 90%);
-    height: 100vh;
-  }
+  background: rgb(7, 7, 7);
+  background: linear-gradient(90deg, rgb(30, 29, 29) 0%, rgb(231, 225, 227) 90%);
+  height: 100vh;
+}
