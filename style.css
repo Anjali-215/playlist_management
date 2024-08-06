@@ -597,3 +597,8 @@ html, body {
   font-weight: 700;
   text-align: center;
 }
+
+#form-center{
+  width: 50%;
+  margin: auto;
+}
