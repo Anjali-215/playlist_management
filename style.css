@@ -24,6 +24,9 @@ body{
     background-size:cover;
     background-position: center;
 }
+.for-video{
+  margin-top: 20 rem;
+}
 .contents{
     position: relative
     z-index 1;
@@ -350,10 +353,11 @@ button.subcribe-button {
     background-size: cover;
     height: 100vh;
     display: flex;
-    flex-direction: coloumn;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
+    color: #ffffff;
 }
 .hero-trackplay .audio-class{
     position: absolute;
@@ -397,7 +401,47 @@ button.subcribe-button {
     color: #636366 !important;
 }
 
+.favo2{
+  background-color: gray;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 10px;   
+}
+.black{
+  color: #000000 !important;
+}
 
+
+.favo2:hover{
+  background-color: white !important;
+  color: gray !important;
+  border: 2px solid gray !important;
+  border-radius: 8px !important;
+    
+}
+.LDM{
+  background-color: gray !important;
+  color: white !important;
+  padding: 10px 20px !important;
+  font-size: 16px !important;
+  border: none !important;
+  border-radius: 8px !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  margin: 10px !important;   
+}
+
+.LDM:hover{
+  background-color: white !important;
+  color: gray !important;
+  border: 2px solid gray !important; 
+  border-radius: 8px !important;    
+}
 
 
 
@@ -601,4 +645,10 @@ html, body {
 #form-center{
   width: 50%;
   margin: auto;
+}
+
+
+
+.favo{
+  align-items: end;
 }

@@ -1,0 +1,79 @@
+#map{
+    height: 400px;
+    width: 100%;
+    margin-top: 20px;  
+    display: none;
+
+}
+#showMapButton {
+    background-color: gray;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border:10em;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    align-self: center;
+    align-content: center;
+}
+
+#showMapButton:hover {
+    background-color: white;
+    color: gray;
+    border: 2px solid gray;
+    border-radius: 8px;
+}
+#navigateButton {
+    background-color: gray;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 10px;
+}
+#navigateButton:hover {
+    background-color: white;
+    color: gray;
+    border: 2px solid gray; 
+    border-radius: 8px;
+}
+
+.carousel-item img {
+    width: 1000px;
+    height: 700px !important;
+    object-fit: cover; 
+        
+}
+.carousel-inner {
+    max-height: 800px; 
+}
+
+.LDM{
+    background-color: gray;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 10px;   
+}
+
+.LDM:hover{
+    background-color: white;
+    color: gray;
+    border: 2px solid gray; 
+    border-radius: 8px;    
+}
+
+.carousel{
+    margin-top: -5rem;
+    margin-left: 8rem ;
+    margin-right: 8rem;
+    margin-bottom: 8rem ;
+}
