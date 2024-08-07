@@ -276,11 +276,20 @@ body{
 }
 .hero{
     background-image: url('./video\ and\ images/subscription.png');
-    height:1000px;
     width: 100%;
     margin: 0px;
     background-repeat: no-repeat;
     background-size: cover;
+    height: 100vh;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
 }
 .subscription-contents .container-subscription{
     max-width: 600px;
