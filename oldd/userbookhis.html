@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sports</title>
+  <link rel="stylesheet" href="useravail.css">
+  <link rel="stylesheet" href="tablestyle.css">
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <style>
+    a {
+      transition: -3s all;
+    }
+
+    .nav_link {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .nav_link li a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      font-family: "Montserrat", sans-serif;
+      /*font-size: 13px;*/
+      /*padding: 20px 30px;*/
+    }
+
+    .nav_link li {
+      position: relative;
+    }
+
+    .nav_link li .sub_turf {
+      position: absolute;
+      width: 180px;
+      background-color: rgba(0, 0, 0, .5);
+      visibility: hidden;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: .3s;
+    }
+
+    .nav_link li .sub_turf li a {
+      color: white;
+      font-size: 13px;
+      padding: 10px 15px;
+    }
+
+    .nav_link li .sub_turf li a:hover {
+      color: aquamarine;
+    }
+
+    /*.nav_link li:hover >a{
+    color: aquamarine;
+}*/
+    .nav_link li:hover .sub_turf {
+      visibility: visible;
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <img class="logo" src="img.jpg" alt="logo">
+    <h2 class="name">Play Sports</h2>
+    <nav>
+      <ul class="nav_link">
+        <li><a href="usermain.html">Home</a></li>
+        <li><a href="userturflist.html">Search Turf</a></li>
+       <!-- <li><a href="useravail.html">Available Turf</a></li>-->
+        <li><a href="userbooking.html">Book Turf</a></li>
+        <!--<li><a href="userbookhis.html">Booking History</a></li>-->
+        <li><a id="userid" href="#">Hi User</a>
+          <ul class="sub_turf">
+            <li><a href="userprofile.html">My Profile</a></li>
+            <li><a href="userbookhis.html">Booking History</a></li>
+            <li><a href="index.html">Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <h1 class="h_userlist">Booking History</h1>
+  <div class="boxcontainer">
+    <table class="elementcontainer">
+      <tr>
+        <td>
+          <input type="text" id="seearch" placeholder="Search" class="search">
+        </td>
+        <td>
+          <a href="#"><i class="material-icons" onclick="searchTable()">search</i></a>
+          <a href="#"><i class="material-icons" onclick="closeTable()">close</i></a>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div class="tablecontainer">
+    <table border="2" class="table_turf" id="dataTable">
+      <thead>
+        <tr>
+          <th><center>No</center></th>
+          <th><center>Turf Name</center></th>
+          <th><center>Slot Time</center></th>
+          <th><center>Date</center></th>
+          <th><center>Amount</center></th>
+        </tr>
+      </thead>
+      <tbody id="tablebody" style="text-align: center;">
+        
+      </tbody>
+  </div>
+  <script>
+    function searchTable() {
+      var input = document.getElementById("seearch").value.toLowerCase();
+      var table = document.getElementById("dataTable");
+      var rows = table.getElementsByTagName("tr");
+
+      for (var i = 1; i < rows.length; i++) {
+        var rowData = rows[i].getElementsByTagName("td");
+        var found = false;
+
+        for (var j = 0; j < rowData.length; j++) {
+          if (rowData[j].innerHTML.toLowerCase().indexOf(input) > -1) {
+            found = true;
+            break;
+          }
+        }
+
+        if (found) {
+          rows[i].style.display = "";
+        } else {
+          rows[i].style.display = "none";
+        }
+      }
+    }
+
+    function LoadHistory(){
+      const userid = JSON.parse(localStorage?.user)._id;
+      if(!userid) return 1;
+      const xhr = new XMLHttpRequest();
+      xhr.withCredentials = true;
+      xhr.addEventListener("readystatechange", function () {
+        if (this.readyState === this.DONE) {
+          const res = JSON.parse(this.responseText);
+          const tbody = document.getElementById('tablebody');
+          res.data.forEach((item, i) => {
+            let _tr = document.createElement('tr');
+            let _td = document.createElement('td');
+            _td.innerText =i+1;
+            _tr.appendChild(_td); 
+            _td = document.createElement('td');
+            _td.innerText =item.turfname;
+            _tr.appendChild(_td); 
+            _td = document.createElement('td');
+            _td.innerText =item.time;
+            _tr.appendChild(_td); 
+            _td = document.createElement('td');
+            _td.innerText =item.date;
+            _tr.appendChild(_td); 
+            _td = document.createElement('td');
+            _td.innerText ="₹"+item.price;
+            _tr.appendChild(_td,); 
+            tbody.appendChild(_tr);
+          });
+        } 
+      });
+      xhr.open("GET", "http://localhost:4000/viewuserbooking?user="+userid);
+      xhr.setRequestHeader("Accept", "*/*");
+      xhr.setRequestHeader("Content-Type", "application/json");
+      xhr.send(null);
+    }
+    document.addEventListener('DOMContentLoaded', ()=>{
+      LoadHistory()
+    })
+    LoadUserData();
+    function LoadUserData(){
+      document.getElementById('userid').innerHTML = 'Hi '+JSON.parse(localStorage.user).username;
+    }
+  </script>
+</body>
+
+</html>

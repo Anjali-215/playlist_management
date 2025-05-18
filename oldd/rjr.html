@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Button Selector</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .box-slots {
+        width: 80%;
+        background: #fff;
+        border-radius: 5px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19),
+          0 6px 6px rgba(0, 0, 0, 0.23);
+        padding: 20px;
+        margin-right: 20px;
+        margin-left: 20px;
+      }
+
+      .container {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+
+      button {
+        flex: 1 1 auto;
+        margin: 5px;
+        padding: 10px;
+        font-size: 14px;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+        color: #fff;
+        background-color: #007bff;
+        transition: background-color 0.3s ease;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+
+      button:active {
+        background-color: #004085;
+      }
+
+      #inputField {
+        width: 40%;
+        padding: 10px;
+        margin-left: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: inset 0 10px 20px rgba(0, 0, 0, 0.075);
+      }
+    </style>
+  </head>
+  <body>
+    <input type="text" id="inputField" />
+    <div class="box-slots" id="buttonContainers">
+      <div class="container">
+        <button onclick="selectButton('12am-1am')">12am - 1am</button>
+        <button onclick="selectButton('1am-2am')">1am - 2am</button>
+        <button onclick="selectButton('2am-3am')">2am - 3am</button>
+        <button onclick="selectButton('3am-4am')">3am - 4am</button>
+        <button onclick="selectButton('4am-5am')">4am - 5am</button>
+        <button onclick="selectButton('5am-6am')">5am - 6am</button>
+        <button onclick="selectButton('6am-7am')">6am - 7am</button>
+        <button onclick="selectButton('7am-8am')">7am - 8am</button>
+        <button onclick="selectButton('8am-9am')">8am - 9am</button>
+        <button onclick="selectButton('9am-10am')">9am - 10am</button>
+        <button onclick="selectButton('10am-11am')">10am - 11am</button>
+        <button onclick="selectButton('11am-12pm')">11am - 12pm</button>
+        <button onclick="selectButton('12pm-1pm')">12pm - 1pm</button>
+        <button onclick="selectButton('1pm-2pm')">1pm - 2pm</button>
+        <button onclick="selectButton('2pm-3pm')">2pm - 3pm</button>
+        <button onclick="selectButton('3pm-4pm')">3pm - 4pm</button>
+        <button onclick="selectButton('4pm-5pm')">4pm - 5pm</button>
+        <button onclick="selectButton('5pm-6pm')">5pm - 6pm</button>
+        <button onclick="selectButton('6pm-7pm')">6pm - 7pm</button>
+        <button onclick="selectButton('7pm-8pm')">7pm - 8pm'</button>
+        <button onclick="selectButton('8pm-9pm')">8pm -9pm</button>
+        <button onclick="selectButton('9pm-10pm')">9pm - 10pm</button>
+        <button onclick="selectButton('10pm-11pm')">10pm - 11pm</button>
+        <button onclick="selectButton('11pm-12am')">11pm - 12am</button>
+      </div>
+    </div>
+
+    <script>
+      function showButtons() {
+        var boxSlots = document.getElementsByClassName("box-slots");
+        for (var i = 0; i < boxSlots.length; i++) {
+          boxSlots[i].style.display = "block";
+        }
+      }
+
+      function selectButton(buttonValue) {
+        var inputField = document.getElementById("inputField");
+        inputField.value = buttonValue;
+        hideButtons();
+      }
+
+      function hideButtons() {
+        var container = document.getElementById("buttonContainers");
+        container.style.display = "none";
+      }
+
+      // Attach the showButtons function to the input field's click event
+      var inputField = document.getElementById("inputField");
+      inputField.addEventListener("mouseup", hideButtons);
+      inputField.addEventListener("mousedown", showButtons);
+    </script>
+  </body>
+</html>

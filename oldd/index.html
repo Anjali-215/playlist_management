@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports</title>
+    <link rel="stylesheet" href="mainstyle.css">
+    <style>
+   a{
+    transition: -3s all;
+}
+.nav_link{
+    display: flex;
+    justify-content: space-between;
+}
+.nav_link li a{
+    display: block;
+    color:white;
+    text-decoration: none;
+    font-family: "Montserrat",sans-serif;
+    /*font-size: 13px;*/
+    /*padding: 20px 30px;*/
+}
+.nav_link li{
+    position: relative;
+}
+.nav_link li .sub_login{
+    position: absolute;
+    width: 180px;
+    background-color: rgba(0, 0, 0, .5);
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: .3s;
+}
+.nav_link li .sub_login li a{
+    color: white;
+    font-size: 13px;
+    padding: 10px 15px;
+}
+.nav_link li .sub_login li a:hover{
+    color: aquamarine;
+}
+/*.nav_link li:hover >a{
+    color: aquamarine;
+}*/
+.nav_link li:hover .sub_login{
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+}
+    </style>
+</head>
+<body>
+    <header>
+       <img class="logo" src="img.jpg" alt="logo">
+       <h2 class="name">Play Sports</h2>
+       <nav>
+        <ul class="nav_link">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="cont.html">Contact</a></li>
+          <li><a href="#">Sign In/Sign Up</a>
+            <ul class="sub_login">
+              <li><a href="loginadmin.html">Admin</a></li>
+              <li><a href="loginuser.html">User</a></li>
+            </ul>
+          </li>
+        </ul>
+       </nav>
+    </header>
+    <p class="text">Are you looking to play after work, organize your Sunday Five's football match? Explore the largest network of sports facilities whole over the India. Once you’ve found the perfect ground, court or gym, Connect with the venue through the Book Now Button to make online booking & secure easier payment. You’re the hero, you’ve found a stunning turf or court, booked with ease and now its time to play. The scene is set for your epic match.</p>
+    <h1 class="sports">Sports</h1>
+    <br><br>
+   <div class="sports-container">
+      <div class="sports-item">
+       <a class="sports_a" href=""><img src="football.jpg" alt="Football">
+        <h3 class="sports_text">Football</h3></a>
+      </div>
+        <div class="sports-item">
+        <a class="sports_a" href=""><img src="cricket.jpg" alt="Cricket">
+         <h3 class="sports_text">Cricket</h3></a>
+       </div>
+    </div>
+</body>
+</html>

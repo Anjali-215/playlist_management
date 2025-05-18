@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports</title>
+    <link rel="stylesheet" href="mainstyle.css">
+    <style>
+   a{
+    transition: -3s all;
+}
+.nav_link{
+    display: flex;
+    justify-content: space-between;
+}
+.nav_link li a{
+    display: block;
+    color:white;
+    text-decoration: none;
+    font-family: "Montserrat",sans-serif;
+    /*font-size: 13px;*/
+    /*padding: 20px 30px;*/
+}
+.nav_link li{
+    position: relative;
+}
+.nav_link li .sub_login{
+    position: absolute;
+    width: 180px;
+    background-color: rgba(0, 0, 0, .5);
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: .3s;
+}
+.nav_link li .sub_login li a{
+    color: white;
+    font-size: 13px;
+    padding: 10px 15px;
+}
+.nav_link li .sub_login li a:hover{
+    color: aquamarine;
+}
+/*.nav_link li:hover >a{
+    color: aquamarine;
+}*/
+.nav_link li:hover .sub_login{
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+}
+    </style>
+</head>
+<body>
+    <header>
+       <img class="logo" src="img.jpg" alt="logo">
+       <h2 class="name">Play Sports</h2>
+       <nav>
+        <ul class="nav_link">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="cont.html">Contact</a></li>
+          <li><a href="#">Sign In/Sign Up</a>
+            <ul class="sub_login">
+              <li><a href="loginadmin.html">Admin</a></li>
+              <li><a href="loginuser.html">User</a></li>
+            </ul>
+          </li>
+        </ul>
+       </nav>
+    </header>
+    <p class="about">
+        Turf, in the context of sports, refers to a specialized playing surface that is designed and constructed for various outdoor sports activities. Turf fields provide a consistent and durable surface that enhances gameplay, reduces maintenance requirements, and allows for extended playing time. There are two main types of turfs: natural grass and artificial/synthetic turf.
+        
+        Natural grass turfs are composed of living grass, typically a mixture of different grass species. These turfs require regular maintenance, including watering, mowing, fertilization, and pest control, to ensure optimal growth and playing conditions. Natural grass turfs offer a more traditional playing experience, with natural variations in surface texture and ball behavior. They require careful management to maintain an even and safe playing surface. </p><br><p class="about">
+        
+        Artificial or synthetic turfs, on the other hand, are man-made playing surfaces constructed using synthetic materials such as polyethylene or polypropylene. These turfs are designed to mimic the appearance and playing characteristics of natural grass. Synthetic turfs offer several advantages, including increased durability, consistent playing conditions, reduced maintenance requirements, and increased playing time. They are particularly popular in areas with extreme weather conditions or where maintaining natural grass fields is challenging.
+        
+        Turf fields, whether natural or synthetic, are constructed to withstand heavy usage and can endure frequent play without significant wear and tear. They are designed to be resistant to damage from cleats, foot traffic, and weather conditions. Turfs provide a consistent playing surface, minimizing variations in surface texture, bounce, and ball movement. This allows players to adapt their techniques and strategies accordingly, promoting fair competition and skill development.</p><br><p class="about">
+        
+        One of the key benefits of turfs is their ability to increase playing time. Turf fields drain water quickly, allowing play to continue even after rainfall. This reduces the risk of cancellations or postponements due to adverse weather conditions and provides athletes with more opportunities to practice and compete.
+        
+        Maintenance requirements for turfs vary depending on the type of turf. Synthetic turfs require less maintenance compared to natural grass fields. They do not need watering, mowing, or fertilization, resulting in cost savings and less time spent on upkeep. Natural grass turfs still require regular maintenance, but to a lesser extent than open grass fields.</p><br><p class="about">
+        
+        Turf fields are versatile and can be designed and customized to meet the specific requirements of different sports. They can be lined for various sports and accommodate different field dimensions, making them suitable for multi-sport facilities. Turfs also contribute to injury prevention, as they are engineered with shock-absorbing properties that reduce the impact of falls and collisions. Some artificial turfs have additional padding or underlayments to provide further cushioning and minimize injuries.
+        
+        Overall, turfs play a significant role in providing athletes and sports enthusiasts with high-quality playing surfaces. They offer consistent and durable environments for sports activities, promote fair competition, and increase the accessibility of sports facilities. Whether it's a natural grass turf or an artificial one, turfs contribute to the enjoyment and development of various outdoor sports.</p>
+</body>
+</html>

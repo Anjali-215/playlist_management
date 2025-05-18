@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sports</title>
+    <link rel="stylesheet" href="useravail.css" />
+    <link rel="stylesheet" href="popupbookturf.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <style>
+      a {
+        transition: -3s all;
+      }
+
+      .nav_link {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .nav_link li a {
+        display: block;
+        color: white;
+        text-decoration: none;
+        font-family: "Montserrat", sans-serif;
+        /*font-size: 13px;*/
+        /*padding: 20px 30px;*/
+      }
+
+      .nav_link li {
+        position: relative;
+      }
+
+      .nav_link li .sub_turf {
+        position: absolute;
+        width: 180px;
+        background-color: rgba(0, 0, 0, 0.5);
+        visibility: hidden;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: 0.3s;
+      }
+
+      .nav_link li .sub_turf li a {
+        color: white;
+        font-size: 13px;
+        padding: 10px 15px;
+      }
+
+      .nav_link li .sub_turf li a:hover {
+        color: aquamarine;
+      }
+
+      /*.nav_link li:hover >a{
+    color: aquamarine;
+}*/
+      .nav_link li:hover .sub_turf {
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .input-box input[type="text"] {
+        margin-top: 10px;
+        padding: 10px;
+        border-radius: 5px;
+        border: none;
+        width: 200px;
+        background-color: #f2f2f2;
+        font-size: 20px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <img class="logo" src="img.jpg" alt="logo" />
+      <h2 class="name">Play Sports</h2>
+      <nav>
+        <ul class="nav_link">
+          <li><a href="usermain.html">Home</a></li>
+          <li><a href="userturflist.html">Search Turf</a></li>
+          <!--<li><a href="useravail.html">Available Turf</a></li>-->
+          <li><a href="userbooking.html">Book Turf</a></li>
+          <!--<li><a href="userbookhis.html">Booking History</a></li>-->
+          <li>
+            <a id="userid" href="#">Hi User</a>
+            <ul class="sub_turf">
+              <li><a href="userprofile.html">My Profile</a></li>
+              <li><a href="userbookhis.html">Booking History</a></li>
+              <li><a href="index.html">Logout</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <center>
+      <div class="add_turf">
+        <center>
+          <h1 class="h_userbook">Book Turf</h1>
+          <br />
+          <form>
+            <label for="turfname">Turf Name</label>
+            <div class="Select">
+              <select id="turfname" name="turfname">
+                <option value="">Select Turf name</option>
+              </select>
+            </div>
+            <br />
+
+            <label for="date">Date</label>
+            <div class="input-boxdate">
+              <input type="date" id="date" name="date" />
+            </div>
+            <br />
+
+            <label for="Time">Slot Time</label>
+            <div class="Select">
+              <select id="turftime" name="turftime">
+                <option value="#">Select</option>
+                <option value="5am - 6am">5am - 6am</option>
+                <option value="6am - 7am">6am - 7am</option>
+                <option value="7am - 8am">7am - 8am</option>
+                <option value="8am - 9am">8am - 9am</option>
+                <option value="9am - 10am">9am - 10am</option>
+                <option value="10am - 11am">10am - 11am</option>
+                <option value="11am - 12pm">11am - 12pm</option>
+                <option value="12pm - 1pm">12pm - 1pm</option>
+                <option value="1pm - 2pm">1pm - 2pm</option>
+                <option value="2pm - 3pm">2pm - 3pm</option>
+                <option value="3pm - 4pm">3pm - 4pm</option>
+                <option value="4pm - 5pm">4pm - 5pm</option>
+                <option value="5pm - 6pm">5pm - 6pm</option>
+                <option value="6pm - 7pm">6pm - 7pm</option>
+                <option value="7pm - 8pm">7pm - 8pm</option>
+                <option value="8pm - 9pm">8pm - 9pm</option>
+                <option value="9pm - 10pm">9pm - 10pm</option>
+                <option value="10pm - 11pm">10pm - 11pm</option>
+                <option value="11pm - 12pm">11pm - 12pm</option>
+              </select>
+            </div>
+            <br />
+
+            <label for="turfprice">Turf Price</label>
+            <div class="input-box">
+              <input type="text" id="pricefield" name="turfprice" readonly value="Select a turf" />
+            </div>
+            <section>
+              <br>
+            <button type="submit" class="btn" onclick="turfbooking()">
+              Pay
+            </button>
+            <span class="overlay"></span>
+
+                        <div class="modal-box">
+                            <i class="fa-regular fa-circle-check"></i>
+                            <h2>Completed</h2>
+                            <h3>Pay To Confirm Booking.</h3>
+                            <div class="buttons">
+                                <button class="close-btn">Ok</button>
+                            </div>
+                        </div>
+                    </section>
+          </form>
+        </center>
+      </div>
+    </center>
+
+    <script src="javascript.js"></script>
+    <script>
+      LoadUserData();
+      let allTurflist = [];
+      function LoadUserData() {
+        document.getElementById("userid").innerHTML =
+          "Hi " + JSON.parse(localStorage.user).username;
+      }
+
+      function getTurfname(id) {
+        for(e in allTurflist){
+          if(allTurflist[e]._id == id) return allTurflist[e];
+        }
+        return {};
+      }
+      function updateTurfPrice(){
+        const turfid = document.getElementById("turfname").value;
+        const turf = getTurfname(turfid);
+        document.getElementById("pricefield").value = "₹"+turf.price || 0+"/-";
+      }
+
+      function turflist() {
+        event.preventDefault();
+        let data = null;
+        const xhr = new XMLHttpRequest();
+        xhr.withCredentials = true;
+        xhr.addEventListener("readystatechange", function () {
+          if (this.readyState === this.DONE) {
+            console.log(this.responseText);
+            const res = JSON.parse(this.responseText);
+            const turfNameSelect = document.getElementById("turfname");
+            if (res.data.length > 0) {
+              allTurflist = res.data;
+              const urlParams = new URLSearchParams(window.location.search);
+              const Turfid = urlParams.get('turf');
+              for (let index = 0; index < res.data.length; index++) {
+                const option = document.createElement("option");
+                option.value = res.data[index]._id;
+                option.text = res.data[index].name;
+                turfNameSelect.appendChild(option);
+                if(Turfid == res.data[index]._id){
+                  document.getElementById("turfname").value = res.data[index]._id;
+                  document.getElementById("turfname").disabled = true; 
+                  document.getElementById("pricefield").value = res.data[index].price || 0+"/-";
+                }
+              }
+            }
+            //document.getElementById("turflist").innerHTML = option;
+          }
+        });
+        xhr.open("GET", "http://localhost:4000/turflistview");
+        xhr.setRequestHeader("Accept", "*/*");
+        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.send(data);
+      }
+
+      function turfbooking() {
+        event.preventDefault();
+        let data = {}, data2 = {};
+
+        data.turfid = document.getElementById("turfname").value;
+        data.time = document.getElementById("turftime").value;
+        data.date = document.getElementById("date").value;
+        if (!data.turfid) return alert("Select truf name to continue");
+        if (!data.time) return alert("Provide truf time to continue");
+        if (!data.date) return alert("Provide truf date to continue");
+        data.username = JSON.parse(localStorage.user).username;
+        data.userid = JSON.parse(localStorage.user)._id;
+        data.turfname = getTurfname(data.turfid).name;
+        data.price = getTurfname(data.turfid).price;
+        data = JSON.stringify(data);
+        
+        const xhr = new XMLHttpRequest();
+        xhr.withCredentials = true;
+        data2.time = document.getElementById("turftime").value;
+        data2.date = document.getElementById("date").value;
+        data2 = JSON.stringify(data2);
+
+        xhr.addEventListener("readystatechange", function () {
+          if (this.readyState === this.DONE) {
+            const res = JSON.parse(this.responseText);
+            if (res.status == 200) {
+                localStorage.bookingdata = data;
+                document.querySelector("section").classList.add("active");
+               // alert("Pay To Confirm Booking");
+                window.location = "userpayment.html";
+            }else alert(res.message);
+          }
+        });
+        xhr.open("POST", "http://localhost:4000/checkslot");
+
+        xhr.setRequestHeader("Accept", "*/*");
+        xhr.setRequestHeader("Content-Type", "application/json");
+
+        xhr.send(data2);
+      }
+      document.addEventListener("DOMContentLoaded", () => {
+        turflist();
+      });
+      document.getElementById("turfname").addEventListener("change", ()=>{
+        updateTurfPrice();
+      })
+      //custom date selection
+      const turfdate = document.getElementById("date");
+      const date_today = new Date();
+      const date_min = new Date(date_today);
+      date_min.setDate(date_today.getDate()+1);
+      const date_max = new Date(date_min);
+      date_max.setDate(date_min.getDate()+10);
+      turfdate.min = date_min.toISOString().split('T')[0];
+      turfdate.max = date_max.toISOString().split('T')[0];
+
+      const section = document.querySelector("section"),
+            overlay = document.querySelector(".overlay"),
+            //showBtn = document.querySelector(".btn"),
+            closeBtn = document.querySelector(".close-btn");
+
+        //showBtn.addEventListener("click", () => section.classList.add("active"));
+
+        overlay.addEventListener("click", () =>
+            section.classList.remove("active")
+        );
+
+        closeBtn.addEventListener("click", () =>
+            section.classList.remove("active")
+        );
+    </script>
+  </body>
+</html>

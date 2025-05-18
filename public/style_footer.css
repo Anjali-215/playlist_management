@@ -1,0 +1,45 @@
+/* Footer Base Styles */
+footer {
+    background-color: #343a40;
+    color: #fff;
+    padding: 40px 0;
+    text-align: center;
+}
+
+footer h5 {
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+footer a {
+    color: #ccc;
+    text-decoration: none;
+    margin-right: 20px;
+    font-size: 16px;
+}
+
+footer a:last-child {
+    margin-right: 0;
+}
+
+footer a:hover {
+    color: #fff;
+}
+
+footer .fa-brands {
+    margin-right: 8px;
+}
+
+/* Divider between social media links and copyright */
+footer hr {
+    border-top: 1px solid #ccc;
+    width: 80%;
+    margin: 20px auto;
+}
+
+/* Copyright text */
+footer div {
+    font-size: 14px;
+    margin-top: 10px;
+}

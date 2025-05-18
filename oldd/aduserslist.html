@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports</title>
+    <link rel="stylesheet" href="adminstyle.css">
+    <link rel="stylesheet" href="tablestyle.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" >
+    <style>
+        a{
+            transition: -3s all;
+        }
+        .nav_link{
+            display: flex;
+            /*justify-content: space-between;*/
+        }
+        .nav_link li a{
+            display: block;
+            color:white;
+            text-decoration: none;
+            font-family: "Montserrat",sans-serif;
+            /*font-size: 13px;*/
+            /*padding: 20px 30px;*/
+        }
+        .nav_link li{
+            position: relative;
+        }
+        .nav_link li .sub_turf{
+            position: absolute;
+            width: 180px;
+            background-color: rgba(0, 0, 0, .5);
+            visibility: hidden;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: .3s;
+        }
+        .nav_link li .sub_turf li a{
+            color: white;
+            font-size: 13px;
+            padding: 10px 20px;
+        }
+        .nav_link li .sub_turf li a:hover{
+            color: aquamarine;
+        }
+        /*.nav_link li:hover >a{
+            color: aquamarine;
+        }*/
+        .nav_link li:hover .sub_turf{
+            visibility: visible;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .sub_turf li:hover a{
+            background-color: "";
+            
+        }
+    </style>
+</head>
+<body>
+    <header>
+       <img class="logo" src="img.jpg" alt="logo">
+       <h2 class="name">Play Sports</h2>
+       <nav>
+        <ul class="nav_link">
+          <li><a href="adminlogin.html">Home</a></li>
+          <li><a href="aduserslist.html">Users List</a></li>
+          <li><a href="">Turf</a>
+              <ul class="sub_turf">
+                <li><a  href="adaddturf.html">Add Turf</a></li>
+                <li><a href="adturflist.html">Turf List</a></li>
+              </ul>
+          </li>  
+          <li><a href="">Manage Turf</a>
+            <ul class="sub_turf">
+                <li><a href="adturfavail.html">Manage Turf Availability</a></li>
+                <li><a href="adturfmanaglist.html">Manage Turf List</a></li>
+              </ul>
+          </li>
+          <li><a href="adturfbooking.html">View Booking</a></li>
+          <li><a id="userid" href="#">Hi Admin</a>
+            <ul class="sub_turf">
+                <li><a href="adprofile.html">My Profile</a></li>
+                
+                <li><a href="index.html">Logout</a></li>
+            </ul>
+          </li>
+        </ul>
+       </nav>
+    </header>  
+    <h1 class="h_userlist">User List</h1>
+    <div class="boxcontainer">
+        <table class="elementcontainer">
+            <tr>
+                <td>
+                    <input type="text" id="seearch"placeholder="Search" class="search">
+                </td>
+                <td>
+                    <a href="#"><i class="material-icons" onclick="searchTable()">search</i></a>
+                    <a href="#"><i class="material-icons" onclick="closeTable()">close</i></a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <table border="2" class="table_turf" id="userlist">
+        
+    </table>
+    <script>
+
+LoadUserData();
+  
+    function LoadUserData(){
+      document.getElementById('userid').innerHTML = 'Hi '+JSON.parse(localStorage.user).username;
+    }
+        
+//Search function
+var searchInput = document.getElementById("seearch");
+ searchInput.addEventListener("keydown", function(event) {
+  if (event.keyCode === 13) {
+    searchTable();
+  }
+});
+
+function searchTable() {
+    var input = document.getElementById("seearch").value.toLowerCase();
+    var table = document.getElementById("userlist");
+    var rows = table.getElementsByTagName("tr");
+
+    for (var i = 1; i < rows.length; i++) {
+      var rowData = rows[i].getElementsByTagName("td");
+      var found = false;
+
+      for (var j = 0; j < rowData.length; j++) {
+        if (rowData[j].innerHTML.toLowerCase().indexOf(input) > -1) {
+          found = true;
+          break;
+        }
+      }
+
+      if (found) {
+        rows[i].style.display = "";
+      } else {
+        rows[i].style.display = "none";
+      }
+    }
+  }
+
+  function closeTable() {
+        var table = document.getElementById("userlist");
+        var rows = table.getElementsByTagName("tr");
+
+        for (var i = 1; i < rows.length; i++) {
+            rows[i].style.display = "";
+        }
+        document.getElementById("seearch").value = "";
+    }
+
+  //user list
+
+ function userlist() {
+      event.preventDefault()
+      let data = null
+      const xhr = new XMLHttpRequest();
+      xhr.withCredentials = true;
+      xhr.addEventListener("readystatechange", function () {
+        if (this.readyState === this.DONE) {
+          console.log(this.responseText);
+          const res = JSON.parse(this.responseText);
+          var table = '<table id="userlist">  <tr><th>No</th><th>Username</th><th>Phone number</th><th>E-mail</th></tr>', element = "";
+          if (res.data.length > 0) {
+            for (let index = 0; index < res.data.length; index++) {
+              element += '<tr><td>' + (index + 1) + '</td><td>' + res.data[index].username + '</td><td>' + res.data[index].phone + '</td><td>' + res.data[index].email + '</td></tr>';
+            }
+          }
+          table += element;
+          table += '</table>'
+          document.getElementById("userlist").innerHTML = table;
+        }
+      });
+      xhr.open("GET", "http://localhost:4000/view");
+      xhr.setRequestHeader("Accept", "*/*");
+      xhr.setRequestHeader("Content-Type", "application/json");
+      xhr.send(data);
+ }
+ document.addEventListener("DOMContentLoaded", () => {
+  userlist()
+});
+    </script>
+    
+</body>
+</html>

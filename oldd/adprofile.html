@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports</title>
+    <link rel="stylesheet" href="adprofile.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" >
+    <style>
+        a{
+            transition: -3s all;
+        }
+        .nav_link{
+            display: flex;
+            /*justify-content: space-between;*/
+        }
+        .nav_link li a{
+            display: block;
+            color:white;
+            text-decoration: none;
+            font-family: "Montserrat",sans-serif;
+            /*font-size: 13px;*/
+            /*padding: 20px 30px;*/
+        }
+        .nav_link li{
+            position: relative;
+        }
+        .nav_link li .sub_turf{
+            position: absolute;
+            width: 180px;
+            background-color: rgba(0, 0, 0, .5);
+            visibility: hidden;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: .3s;
+        }
+        .nav_link li .sub_turf li a{
+            color: white;
+            font-size: 13px;
+            padding: 10px 20px;
+        }
+        .nav_link li .sub_turf li a:hover{
+            color: aquamarine;
+        }
+        /*.nav_link li:hover >a{
+            color: aquamarine;
+        }*/
+        .nav_link li:hover .sub_turf{
+            visibility: visible;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .sub_turf li:hover a{
+            background-color: "";
+            
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img class="logo" src="img.jpg" alt="logo">
+        <h2 class="name">Play Sports</h2>
+        <nav>
+         <ul class="nav_link">
+           <li><a href="adminlogin.html">Home</a></li>
+           <li><a href="aduserslist.html" onclick="userlist()">Users List</a></li>
+           <li><a href="">Turf</a>
+               <ul class="sub_turf">
+                 <li><a href="adaddturf.html">Add Turf</a></li>
+                 <li><a href="adturflist.html" onclick="turflist()">Turf List</a></li>
+               </ul>
+           </li>  
+           <li><a href="">Manage Turf</a>
+             <ul class="sub_turf">
+                 <li><a href="adturfavail.html">Manage Turf Availability</a></li>
+                 <li><a href="adturfmanaglist.html">Manage Turf List</a></li>
+               </ul>
+           </li>
+           <li><a href="adturfbooking.html">View Booking</a></li>
+           <li><a id="userid" href="">Hi Admin</a>
+             <ul class="sub_turf">
+                 <li><a href="adprofile.html">My Profile</a></li>
+                 
+                 <li><a href="index.html">Logout</a></li>
+             </ul>
+           </li>
+         </ul>
+        </nav>
+     </header>
+     <center>
+    <div class="profilecontainer">
+    <h1 class="h_userlist">Admin Profile</h1>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR48eTkH_MQT33usrZ-lj7-Xut2O6036uQwjw&usqp=CAU" class="adminprofile" alt="Admin Avatar">
+    <br>
+    <div class="profile-info">
+      <h2 id="userid2">John Doe</h2>
+      <p id="email">Email : john.doe@example.com</p>
+      <p>Role : Administrator</p>
+      <p id="phone">Phone Number : +9244435332</p>
+    </div>
+
+  <div class="change-password">
+    <h3>Change Password</h3>
+    <input type="password" placeholder="Current Password">
+    <br>
+    <input type="password" placeholder="New Password">
+    <input type="password" placeholder="Confirm New Password">
+    <br>
+    <button onclick="changePassword()">Save Password</button>
+  </div>
+    </div>
+     </center>
+
+  <script>
+    function changePassword() {
+      // Add your logic to change the password here
+      alert('Password changed successfully!');
+    }
+    function LoadUserData(){
+      document.getElementById('userid').innerHTML = 'Hi '+JSON.parse(localStorage.user).username;
+      document.getElementById('userid2').innerHTML = JSON.parse(localStorage.user).username;
+      document.getElementById('email').innerHTML = 'Email : '+JSON.parse(localStorage.user).email;
+      document.getElementById('phone').innerHTML = 'Phone Number : '+JSON.parse(localStorage.user).phone;
+    }
+    LoadUserData();
+  </script>
+</body>
+</html>

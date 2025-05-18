@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports</title>
+    <link rel="stylesheet" href="reg.css">
+    <style>
+    a{
+    transition: -3s all;
+}
+.nav_link{
+    display: flex;
+    justify-content: space-between;
+}
+.nav_link li a{
+    display: block;
+    color:white;
+    text-decoration: none;
+    font-family: "Montserrat",sans-serif;
+    /*font-size: 13px;*/
+    /*padding: 20px 30px;*/
+}
+.nav_link li{
+    position: relative;
+}
+.nav_link li .sub_login{
+    position: absolute;
+    width: 180px;
+    background-color: rgba(0, 0, 0, .5);
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: .3s;
+}
+.nav_link li .sub_login li a{
+    color: white;
+    font-size: 13px;
+    padding: 10px 15px;
+}
+.nav_link li .sub_login li a:hover{
+    color: aquamarine;
+}
+/*.nav_link li:hover >a{
+    color: aquamarine;
+}*/
+.nav_link li:hover .sub_login{
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+}
+    </style>
+    <script>
+        function regcheck(){
+        event.preventDefault()
+        let data = {}
+
+        data.username = document.getElementById("username").value;
+        data.email = document.getElementById("email").value;
+        data.phone = document.getElementById("phoneno").value;
+        data.password = document.getElementById("psw").value;
+        //data.checkbox = document.getElementById("checked").value;
+        //if (data.username === "" || data.email === "" || data.phone === "" || data.password === "" ||data.checkbox === "") {
+    //alert("Please fill in all the fields.");
+    //return; // Stop further execution if any field is empty
+    if (data.username == "") {
+                alert("Name must be filled out");
+                return false;
+            }
+
+            // Check if email is empty and is a valid email format
+            if (data.email == "") {
+                alert("Email must be filled out");
+                return false;
+            } else {
+                var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+                if (!emailPattern.test(data.email)) {
+                    alert("Invalid email address");
+                    return false;
+                }
+            }
+
+            // Check if password is empty and meets minimum length
+            if (data.password == "") {
+                alert("Password must be filled out");
+                return false;
+            } else if (data.password.length < 6) {
+                alert("Password must be at least 8 characters long");
+                return false;
+            }
+            if (data.phone == "") {
+        alert("Phone number must be filled out");
+        return false;
+    } else if (data.phone.length !== 10) {
+        alert("Please enter a 10-digit phone number");
+        return false;
+    }
+    
+
+        data = JSON.stringify(data);
+        const xhr = new XMLHttpRequest();
+        xhr.withCredentials = true;
+        
+        xhr.addEventListener("readystatechange", function () {
+          if (this.readyState === this.DONE) {
+            const response = JSON.parse(this.responseText);
+            if(response.status == 200){
+                window.location="usermain.html";
+            }else{
+                alert(response.data);
+                location.reload();
+            }
+            
+          }
+        });
+        
+        xhr.open("POST", "http://localhost:4000/signup");
+        
+        xhr.setRequestHeader("Accept", "*/*");
+        xhr.setRequestHeader("User-Agent", "Thunder Client (https://www.thunderclient.com)");
+        xhr.setRequestHeader("Content-Type", "application/json");
+        
+        xhr.send(data);
+        
+        }
+    </script>
+</head>
+<body>
+    <header>
+       <img class="logo" src="img.jpg" alt="logo">
+       <h2 class="name">Play Sports</h2>
+       <nav>
+        <ul class="nav_link">
+          <li><a href="main.html">Home</a></li>
+          <li><a href="">About</a></li>
+          <li><a href="cont.html">Contact</a></li>
+          <li><a href="#">Sign In/Sign Up</a>
+            <ul class="sub_login">
+            <li><a href="loginadmin.html">Admin</a></li>
+            <li><a href="loginuser.html">User</a></li>
+        </ul>
+        </li>
+        </ul>
+       </nav>
+    </header>  
+    <center>
+        <div class="regcontainer">
+            <br>
+            <h1 style="font-family: Montserrat;"><center>User Registration</center></h1>
+            <br>
+            <center>
+            <form action="#">
+                <label>Username</label>
+                <div class="input-box">
+                    <input type="text" id="username" required>
+                </div>
+    
+                <label>Email</label>
+                <div class="input-boxpass">
+                    <input type="text" id="email" required>
+                </div>
+    
+                <label>Phone number</label>
+                <div class="input-boxpass">
+                    <input type="number" id="phoneno" pattern="[0-9]{10}" required>
+                </div>
+    
+                <label>Password</label>
+                <div class="input-boxpass">
+                    <input type="password" id="psw" required>
+                </div>
+                <!--<div class="rem-forgot">
+                    <label><input type="checkbox" id="checked"> I agree the terms&conditions</label>
+                </div>-->
+                <center>
+                
+                    <button type="submit" class="btn" onclick="regcheck()">Register</button>
+                <div class="reg"><a href="loginuser.html">Already have an Account?</a></div>
+                </center>
+            </form>
+            </center>
+        </div>
+        </center>
+    </body>
+    </html>

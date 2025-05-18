@@ -1,0 +1,309 @@
+/*home page*/
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+*{
+    margin: 0;
+    padding: 0%;
+    box-sizing: border-box;
+   /* font-family: 'Popins',sans-serif;*/
+   /*background-color: black;*/
+}
+
+body{
+justify-content: center;
+align-items: center;
+min-height: 100vh;
+background: url(background.jpg) no-repeat;
+background-size: cover;
+background-position: center;
+}
+
+li, a{
+    font-family:"Montserrat",sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #fff;
+    text-decoration: none;
+}
+
+header{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 30px 10%;
+}
+
+.name{
+    font-size:60px;
+    font-family: "Montserrat",sans-serif;
+    color: white;
+    margin-right: 41%;
+    justify-content: space-between;
+}
+
+.name:hover{
+    color: red
+}
+
+.logo{
+    cursor: pointer;
+    width: 100px;
+    border-radius: 50px;
+    float: left;
+    margin-right: auto;
+}
+
+.nav_link{
+    list-style: none;
+}
+
+.nav_link li{
+    display: inline-block;
+    padding: 0px 20px;
+}
+
+.nav_link li a{
+    transition: all 0.3s ease 0s;
+}
+
+.nav_link li a:hover{
+    color: aqua;
+}
+
+.text{
+    text-align: center;
+    font-size: 30px;
+    margin-top: 5%;
+    margin-bottom: 0%;
+    margin-left: 5%;
+    margin-right: 5%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: black;
+}
+
+.sports{
+    text-align: center;
+    font-size: 50px;
+    margin-top: 5%;
+    margin-bottom: 0%;
+    font-family: "Montserrat",sans-serif;
+    color: #fff;
+}
+
+.sports:hover{
+    color: red;
+}
+
+.sports-container {
+    content: "";
+    clear: both;
+    margin: auto;
+    display :flex;
+    text-align: center;
+    justify-content: center;
+}
+
+.sports-item {
+    margin: 15px;
+    text-align: center;
+  }
+  
+.sports_text{
+    color: white;
+    font-family: "Montserrat",sans-serif;
+    font-size: 25px;
+}
+.sports-item img {
+    width: 300px;
+    height: 200px;
+    border-radius: 5px;
+    float: left;
+    margin: 0% auto;
+  }
+
+  .sports-item, .sports_a,.sports_text{
+    transition: all 0.3s ease 0s;
+  }
+
+  .sports-item, .sports-a, .sports_text:hover{
+    color: aqua;
+  }
+
+  /*login page*/
+
+.logincontainer{
+    margin: 6% 0px 0px 0px;
+    position: relative;
+    width: 400px;
+    height: 440px;
+    background: transparent;
+    border: 2px solid white;
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+    justify-content: center;
+    align-items: center;
+}
+
+.login-type label{
+    font-size: 15px;
+    font-family: "Montserrat",sans-serif;
+}
+
+label{
+    font-size: 15px;
+    font-family: "Montserrat",sans-serif;
+    margin-bottom: 5%;
+}
+
+.input-box input{
+    width: 80%;
+    height: 80%;
+    /*background: transparent;*/
+    outline: none;
+    font-size: 100%;
+    color: black;
+    font-weight: 500;
+  }
+  .input-boxpass input{
+    width: 80%;
+    height: 35px;
+    margin-bottom: 20px;
+    /*background: transparent;*/
+    outline:none;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: 100%;
+    color: black;
+    font-weight: 500;
+    border-radius: 6px
+  }
+
+  
+  .rem-forgot{
+    font-size: 15px;
+    color: black;
+    font-weight: 500;
+    margin: -15px 0 15px;
+    margin-left: 40px;
+    margin-right: 40px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.rem-forgot label{
+    font-size: 14px;
+}
+
+.rem-forgot a{
+    color: black;
+    text-decoration: none;
+}
+
+.rem-forgot a:hover{
+    text-decoration: underline;
+    color: aquamarine;
+}
+
+.btn{
+    width: 50%;
+    height: 45px;
+    background: gray;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    font-size: 20px;
+    color: #fff;
+}
+
+.btn:hover{
+    cursor: pointer;
+    color: aquamarine;
+}
+
+/* registration*/
+
+.reg{
+    font-size: 15px;
+    text-align: center;
+    margin: 25px 0 10px;
+    font-family: "Montserrat",sans-serif;
+}
+
+.reg  a{
+    text-decoration: none;
+    color: black;
+}
+
+.reg a:hover{
+    text-decoration: underline;
+    color: rgb(244, 248, 4);
+}
+
+.regcontainer{
+    margin: 5% 0px 0px 0px;
+    position: relative;
+    width: 400px;
+    height: 490px;
+    background: transparent;
+    border: 2px solid white;
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+    justify-content: center;
+    align-items: center;
+}
+
+/*contact*/
+
+.contact_container {
+    margin: 4% 0px 0px 0px;
+    position: relative;
+    width: 460px;
+    height: 560px;
+    background: transparent;
+    border: 2px solid white;
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .cont_label{
+    display: block;
+      margin-bottom: 10px;
+      font-weight: bold;
+  }
+
+  input[type="text"],
+  .cont_email,
+  textarea {
+    width: 80%;
+    padding: 7px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  
+  input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #45a049;
+  }
+
+
+  .cont_detail{
+    font-family: Montserrat;
+  }
+

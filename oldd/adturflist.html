@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports</title>
+    <link rel="stylesheet" href="adaddturf.css">
+    <link rel="stylesheet" href="turflistcontainer.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" >
+    <style>
+        a{
+            transition: -3s all;
+        }
+        .nav_link{
+            display: flex;
+            /*justify-content: space-between;*/
+        }
+        .nav_link li a{
+            display: block;
+            color:white;
+            text-decoration: none;
+            font-family: "Montserrat",sans-serif;
+            /*font-size: 13px;*/
+            /*padding: 20px 30px;*/
+        }
+        .nav_link li{
+            position: relative;
+        }
+        .nav_link li .sub_turf{
+            position: absolute;
+            width: 180px;
+            background-color: rgba(0, 0, 0, .5);
+            visibility: hidden;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: .3s;
+        }
+        .nav_link li .sub_turf li a{
+            color: white;
+            font-size: 13px;
+            padding: 10px 20px;
+        }
+        .nav_link li .sub_turf li a:hover{
+            color: aquamarine;
+        }
+        /*.nav_link li:hover >a{
+            color: aquamarine;
+        }*/
+        .nav_link li:hover .sub_turf{
+            visibility: visible;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .sub_turf li:hover a{
+            background-color: "";
+            
+        }
+    </style>
+</head>
+<body>
+    <header>
+       <img class="logo" src="img.jpg" alt="logo">
+       <h2 class="name">Play Sports</h2>
+       <nav>
+        <ul class="nav_link">
+          <li><a href="adminlogin.html">Home</a></li>
+          <li><a href="aduserslist.html" onclick="userlist()">Users List</a></li>
+          <li><a href="">Turf</a>
+              <ul class="sub_turf">
+                <li><a href="adaddturf.html">Add Turf</a></li>
+                <li><a href="adturflist.html">Turf List</a></li>
+              </ul>
+          </li>  
+          <li><a href="">Manage Turf</a>
+            <ul class="sub_turf">
+                <li><a href="adturfavail.html">Manage Turf Availability</a></li>
+                <li><a href="adturfmanaglist.html">Manage Turf List</a></li>
+              </ul>
+          </li>
+          <li><a href="adturfbooking.html">View Booking</a></li>
+          <li><a id="userid" href="#">Hi Admin</a>
+            <ul class="sub_turf">
+                <li><a href="adprofile.html">My Profile</a></li>
+                
+                <li><a href="index.html">Logout</a></li>
+            </ul>
+          </li>
+        </ul>
+       </nav>
+    </header>  
+    <h1 class="h_userlist" onclick="turflist()">Turf List</h1>
+    <div class="boxcontainer">
+        <table class="elementcontainer">
+            <tr>
+                <td>
+                    <input type="text" id="seearch"placeholder="Search" class="search">
+                </td>
+                <td>
+                    <a href="#"><i class="material-icons" onclick="searchTable()">search</i></a>
+                    <a href="#"><i class="material-icons" onclick="closeTable()">close</i></a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <br><br>
+    <div class="xcontainer">
+
+      <div class="box-container" id="turflist">
+  
+        </div>
+
+      </div>
+
+    </div>      
+    <!--<div>
+        <table border="0">
+            <br>
+            <tr>
+                <th>
+                    <div class="btn_turf">
+                        <button>Previous</button>
+                        <button>Next</button>
+                    </div>
+                </th>
+            </tr>
+        </table>
+    </div>-->
+   <!-- <a href="#" class="btnn">Book Now</a>-->
+
+    <script>
+    LoadUserData();
+
+    function LoadUserData(){
+      document.getElementById('userid').innerHTML = 'Hi '+JSON.parse(localStorage.user).username;
+
+    }
+
+    var searchInput = document.getElementById("seearch");
+ searchInput.addEventListener("keydown", function(event) {
+  if (event.keyCode === 13) {
+    searchTable();
+  }
+});
+
+         function searchTable() {
+  var input = document.getElementById("seearch").value.toLowerCase();
+  var div = document.querySelector(".box-container");
+  var boxes = div.getElementsByClassName("box");
+
+  for (var i = 0; i < boxes.length; i++) {
+    var title = boxes[i].getElementsByTagName("h3")[0];
+    var description = boxes[i].getElementsByTagName("p")[0];
+
+    var titleText = title.textContent || title.innerText;
+    var descriptionText = description.textContent || description.innerText;
+
+    if (titleText.toLowerCase().indexOf(input) > -1 || descriptionText.toLowerCase().indexOf(input) > -1) {
+      boxes[i].style.display = "";
+    } else {
+      boxes[i].style.display = "none";
+    }
+  }
+}
+
+function closeTable() {
+        var div = document.querySelector(".box-container");
+        var boxes = div.getElementsByClassName("box");
+
+        for (var i = 0; i < boxes.length; i++) {
+            boxes[i].style.display = "";
+        }
+        document.getElementById("seearch").value = "";
+    }
+
+    //turflist
+    function turflist() {
+  let data = null;
+  const xhr = new XMLHttpRequest();
+  xhr.withCredentials = true;
+  xhr.addEventListener("readystatechange", function () {
+    if (this.readyState === this.DONE) {
+      console.log(this.responseText);
+      const res = JSON.parse(this.responseText);
+      let gridData = '';
+      if (res.data.length > 0) {
+        for (let index = 0; index < res.data.length; index++) {
+          gridData += `<div class="box">
+            <img src="/cdn/image/${res.data[index].image}" width="300px" height="200px">
+            <div>
+              <h3>${res.data[index].name}</h3>
+              <p>Address : ${res.data[index].location}</p><br/>
+              <p>${res.data[index].description}</p>
+            </div>
+          </div>`;
+        }
+      }
+      document.getElementById("turflist").innerHTML = gridData;
+    }
+  });
+  xhr.open("GET", "http://localhost:4000/turflistview");
+  xhr.setRequestHeader("Accept", "*/*");
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.send(data);
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  turflist();
+});
+
+function deleteturf(name) {
+  let data = null;
+  const xhr = new XMLHttpRequest();
+  xhr.withCredentials = true;
+  xhr.addEventListener("readystatechange", function () {
+    if (this.readyState === this.DONE) {
+      console.log(this.responseText);
+      // Handle the response after deleting the user
+      // For example, you can refresh the user list by calling the userlist() function
+      turflist();
+    }
+    //alert('Updated List Deleted');
+    location.reload();
+  });
+  xhr.open("DELETE", "http://localhost:4000/deleteturflist");
+  xhr.setRequestHeader("Accept", "*/*");
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.send(JSON.stringify({ name: name }));
+  xhr.send(data);
+}
+  </script>
+</body>
+</html>
+
+              <!--<button class="btnn" onclick="deleteturf('${res.data[index].name}')">Delete</button></a>-->

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports</title>
+    <link rel="stylesheet" href="adturfavail.css">
+    <link rel="stylesheet" href="popupadturfavail.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <style>
+        a {
+            transition: -3s all;
+        }
+
+        .nav_link {
+            display: flex;
+            /*justify-content: space-between;*/
+        }
+
+        .nav_link li a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            font-family: "Montserrat", sans-serif;
+            /*font-size: 13px;*/
+            /*padding: 20px 30px;*/
+        }
+
+        .nav_link li {
+            position: relative;
+        }
+
+        .nav_link li .sub_turf {
+            position: absolute;
+            width: 180px;
+            background-color: rgba(0, 0, 0, .5);
+            visibility: hidden;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: .3s;
+        }
+
+        .nav_link li .sub_turf li a {
+            color: white;
+            font-size: 13px;
+            padding: 10px 20px;
+        }
+
+        .nav_link li .sub_turf li a:hover {
+            color: aquamarine;
+        }
+
+        /*.nav_link li:hover >a{
+            color: aquamarine;
+        }*/
+        .nav_link li:hover .sub_turf {
+            visibility: visible;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .sub_turf li:hover a {
+            background-color: "";
+
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <img class="logo" src="img.jpg" alt="logo">
+        <h2 class="name">Play Sports</h2>
+        <nav>
+            <ul class="nav_link">
+                <li><a href="adminlogin.html">Home</a></li>
+                <li><a href="aduserslist.html" onclick="userlist()">Users List</a></li>
+                <li><a href="">Turf</a>
+                    <ul class="sub_turf">
+                        <li><a href="adaddturf.html">Add Turf</a></li>
+                        <li><a href="adturflist.html" onclick="turflist()">Turf List</a></li>
+                    </ul>
+                </li>
+                <li><a href="">Manage Turf</a>
+                    <ul class="sub_turf">
+                        <li><a href="adturfavail.html">Manage Turf Availability</a></li>
+                        <li><a href="adturfmanaglist.html">Manage Turf List</a></li>
+                    </ul>
+                </li>
+                <li><a href="adturfbooking.html">View Booking</a></li>
+                <li><a id="userid" href="#">Hi Admin</a>
+                    <ul class="sub_turf">
+                        <li><a href="adprofile.html">My Profile</a></li>
+
+                        <li><a href="index.html">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <center>
+        <br>
+        <div class="add_turf">
+            <center>
+                <h1 class="h_userlistadd">Manage Turf Availability</h1>
+                <br><br>
+                <form>
+                    <label for="turfname">Turf Name</label>
+                    <div class="Select">
+                        <select name="turfname" id="turfname">
+                            <option value="">Select Turf name</option>
+                        </select>
+                    </div><br><br>
+
+                    <label for="name">Turf Status</label>
+                    <div class="Select">
+                        <select id="turfstatus" name="turfstatus">
+                            <option value="">Select</option>
+                            <option value="Available">Available</option>
+                            <option value="Unavaliable">Un-Available</option>
+                        </select>
+                    </div><br>
+
+
+                    <section>
+                        <button class="btn" onclick="manageturf()">Save </button>
+                        <span class="overlay"></span>
+
+                        <div class="modal-box">
+                            <i class="fa-regular fa-circle-check"></i>
+                            <h2>Completed</h2>
+                            <h3>Sucessfully Turf Updated.</h3>
+                            <div class="buttons">
+                                <button class="close-btn">Ok</button>
+                            </div>
+                    </section>
+                </form>
+            </center>
+        </div>
+    </center>
+    <script>
+        LoadUserData();
+
+        function LoadUserData() {
+            document.getElementById('userid').innerHTML = 'Hi ' + JSON.parse(localStorage.user).username;
+        }
+
+        //turf name to show in select
+        function turflist() {
+            event.preventDefault()
+            let data = null
+            const xhr = new XMLHttpRequest();
+            xhr.withCredentials = true;
+            xhr.addEventListener("readystatechange", function () {
+                if (this.readyState === this.DONE) {
+                    console.log(this.responseText);
+                    const res = JSON.parse(this.responseText);
+                    const turfNameSelect = document.getElementById('turfname');
+                    if (res.data.length > 0) {
+                        for (let index = 0; index < res.data.length; index++) {
+                            const option = document.createElement('option');
+                            option.value = res.data[index]._id;
+                            option.text = res.data[index].name;
+                            turfNameSelect.appendChild(option);
+                        }
+                    }
+                    //document.getElementById("turflist").innerHTML = option;
+                }
+            });
+            xhr.open("GET", "http://localhost:4000/turflistview");
+            xhr.setRequestHeader("Accept", "*/*");
+            xhr.setRequestHeader("Content-Type", "application/json");
+            xhr.send(data);
+        }
+
+        //manage turf continue
+        function manageturf() {
+            event.preventDefault()
+            let data = {}
+
+            data.id = document.getElementById("turfname").value;
+            data.status = document.getElementById("turfstatus").value;
+            if (!data.id) return alert("Select truf name to continue");
+            if (!data.status) return alert("Provide trufstatus to continue");
+            data = JSON.stringify(data);
+            const xhr = new XMLHttpRequest();
+            xhr.withCredentials = true;
+
+            xhr.addEventListener("readystatechange", function () {
+                if (this.readyState === this.DONE) {
+                    const res = JSON.parse(this.responseText);
+                    if (res.status == 200) {
+                        document.querySelector("section").classList.add("active");
+                    }
+                }
+ 
+            });
+
+            xhr.open("PUT", "http://localhost:4000/updateturfstatus");
+
+            xhr.setRequestHeader("Accept", "*/*");
+            xhr.setRequestHeader("Content-Type", "application/json");
+
+            xhr.send(data);
+
+        }
+
+        const section = document.querySelector("section"),
+            overlay = document.querySelector(".overlay"),
+            //showBtn = document.querySelector(".btn"),
+            closeBtn = document.querySelector(".close-btn");
+
+        //showBtn.addEventListener("click", () => section.classList.add("active"));
+
+        overlay.addEventListener("click", () =>
+            section.classList.remove("active")
+        );
+
+        closeBtn.addEventListener("click", () =>
+            section.classList.remove("active")
+        );
+
+        document.addEventListener("DOMContentLoaded", () => {
+            turflist()
+        });
+    </script>
+</body>
+
+</html>

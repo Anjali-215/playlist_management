@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports</title>
+    <link rel="stylesheet" href="loginstyle.css">
+    <style>
+    a{
+    transition: -3s all;
+}
+.nav_link{
+    display: flex;
+    justify-content: space-between;
+}
+.nav_link li a{
+    display: block;
+    color:white;
+    text-decoration: none;
+    font-family: "Montserrat",sans-serif;
+    /*font-size: 13px;*/
+    /*padding: 20px 30px;*/
+}
+.nav_link li{
+    position: relative;
+}
+.nav_link li .sub_login{
+    position: absolute;
+    width: 180px;
+    background-color: rgba(0, 0, 0, .5);
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: .3s;
+}
+.nav_link li .sub_login li a{
+    color: white;
+    font-size: 13px;
+    padding: 10px 15px;
+}
+.nav_link li .sub_login li a:hover{
+    color: aquamarine;
+}
+/*.nav_link li:hover >a{
+    color: aquamarine;
+}*/
+.nav_link li:hover .sub_login{
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+}
+    </style>
+   <script>
+      
+    function validateEmail(email) {
+        let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(String(email).toLowerCase());
+    }
+
+    function validatePassword(password) {
+        let re = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+        return re.test(String(password));
+    }
+
+    function logincheck(){
+        event.preventDefault()
+        let data = {}
+        data.email = document.getElementById("email").value;
+        data.password = document.getElementById("psw").value;
+        
+        if (!validateEmail(data.email)) {
+            return alert("Invalid email");
+        }
+        
+      
+        
+        data = JSON.stringify(data);
+        const xhr = new XMLHttpRequest();
+        xhr.withCredentials = true;
+        
+        xhr.addEventListener("readystatechange", function () {
+            if (this.readyState === this.DONE) {
+                const res = JSON.parse(this.responseText);
+                if(res.status == 200){
+                    //return alert("You loggined");
+                    localStorage.user = JSON.stringify(res.user)
+                    window.location="usermain.html";
+                }
+                else {
+                    return alert("Invalid id");
+                }
+            }
+        });
+        
+        xhr.open("POST", "http://localhost:4000/login");
+        xhr.setRequestHeader("Accept", "*/*");
+        xhr.setRequestHeader("User-Agent", "Thunder Client (https://www.thunderclient.com)");
+        xhr.setRequestHeader("Content-Type", "application/json");
+        
+        xhr.send(data);
+    }
+</script>
+<body>
+    <header>
+        <!-- Your header content -->
+    </header>
+    <center>
+        <div class="logincontainer">
+            <br>
+            <h1 style="font-family: Montserrat;"><center>User Login</center></h1>
+            <br><br>
+            <center>
+                <br>
+                <form id="loginForm" action="#" onsubmit="return logincheck()">
+                    <label>Email</label>
+                    <div class="input-box">
+                        <input type="email" id="email" required>
+                    </div><br>
+
+                    <label>Password</label>
+                    <div class="input-box">
+                        <input type="password" id="psw" required>
+                    </div><br>
+
+                    <div class="rem-forgot">
+                        <label><input type="checkbox"> Remember me</label>
+                        <a href="#">Forgot Password?</a>
+                    </div>
+                    <br>
+                    <center>
+                        <button type="submit" class="btn">Login</button>
+                        <div class="reg"><a href="reg.html">Don't have an Account?</a></div>
+                    </center>
+                </form>
+            </center>
+        </div>
+    </center>
+</body>
+
+</html>
